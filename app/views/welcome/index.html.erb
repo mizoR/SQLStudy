@@ -1,5 +1,3 @@
-<pre class="code"><code><%= PopTbl.all.to_sql %>
-<%= Hirb::Helpers::AutoTable.render(PopTbl.all) %></code></pre>
+<%= dbconsole PopTbl.all.to_sql, PopTbl.all %>
 
-<pre class="code"><code><%= @sql %>
-<%= Hirb::Helpers::AutoTable.render(@result) %></code></pre>
+<%= dbconsole @sql, @result %>
