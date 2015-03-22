@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  host: localhost
+  username: sql_study
+
+test:
+  <<: *default
+  host: localhost
+  username: sql_study
+
+production:
+  <<: *default
+  host: db.example.com
+  username: sql_study
