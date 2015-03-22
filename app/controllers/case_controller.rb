@@ -29,5 +29,17 @@ class CaseController < ApplicationController
        GROUP BY pop_class;
     SQL
     @result2 = PopTbl.find_by_sql(@sql2)
+
+    @sql3 = <<-SQL.strip_heredoc
+      -- 男女別・県の人数の合計を求める
+      SELECT pref_name,
+             -- 男性の人口
+             SUM( CASE WHEN sex = 1 THEN population ELSE 0 END ) AS cnt_m,
+             -- 女性の人口
+             SUM( CASE WHEN sex = 2 THEN population ELSE 0 END ) AS cnt_f
+          FROM pop_tbl2s
+       GROUP BY pref_name;
+    SQL
+    @result3 = PopTbl.find_by_sql(@sql3)
   end
 end

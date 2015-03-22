@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322090925) do
+ActiveRecord::Schema.define(version: 20150322110230) do
+
+  create_table "pop_tbl2s", id: false, force: :cascade do |t|
+    t.string  "pref_name",  limit: 255, null: false
+    t.integer "sex",        limit: 4,   null: false
+    t.integer "population", limit: 4,   null: false
+  end
 
   create_table "pop_tbls", id: false, force: :cascade do |t|
     t.string  "pref_name",  limit: 255, null: false

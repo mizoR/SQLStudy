@@ -1,8 +1,24 @@
 <h2>CASE 式</h2>
+
+
 <h3>既存のコード体系を新体系に変換して集計する</h3>
-<pre class="code"><code><%= PopTbl.all.to_sql %></code></pre>
-<pre class="code"><code><%= Hirb::Helpers::AutoTable.render(PopTbl.all) %></code></pre>
-<pre class="code"><code><%= @sql %></code></pre>
-<pre class="code"><code><%= Hirb::Helpers::AutoTable.render(@result) %></code></pre>
-<pre class="code"><code><%= @sql2 %></code></pre>
-<pre class="code"><code><%= Hirb::Helpers::AutoTable.render(@result2) %></code></pre>
+
+<pre class="code"><code><%= PopTbl.all.to_sql %>
+<%= Hirb::Helpers::AutoTable.render(PopTbl.all) %></code></pre>
+
+<pre class="code"><code><%= @sql %>
+<%= Hirb::Helpers::AutoTable.render(@result) %></code></pre>
+
+<pre class="code"><code><%= @sql2 %>
+<%= Hirb::Helpers::AutoTable.render(@result2) %></code></pre>
+
+
+<h3>異なる条件の集計を1つのSQLで行う</h3>
+
+<pre class="code"><code><%= PopTbl2.all.to_sql %>
+<%= Hirb::Helpers::AutoTable.render(PopTbl2.all) %></code></pre>
+
+<pre class="code"><code><%= @sql3 %>
+<%= Hirb::Helpers::AutoTable.render(@result3) %></code></pre>
+
+
