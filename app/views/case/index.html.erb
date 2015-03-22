@@ -7,10 +7,6 @@
 <%= dbconsole @sql, @result %>
 <%= dbconsole @sql2, @result2 %>
 
-<pre class="code"><code><%= @sql2 %>
-<%= Hirb::Helpers::AutoTable.render(@result2) %></code></pre>
-
-
 <h3>異なる条件の集計を1つのSQLで行う</h3>
 
 <%= dbconsole PopTbl2.all.to_sql, PopTbl2.all %>
