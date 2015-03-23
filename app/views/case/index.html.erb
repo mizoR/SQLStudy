@@ -18,3 +18,8 @@
 <%= dbconsole OpenCourse.all.to_sql, OpenCourse.all %>
 <%= dbconsole @sql4, @result4 %>
 <%= dbconsole @sql4_2, @result4_2 %>
+
+<h3>CASE式の中で集約関数を使う</h3>
+
+<%= dbconsole StudentClub.all.to_sql, StudentClub.all %>
+<%= dbconsole @sql5, @result5 %>

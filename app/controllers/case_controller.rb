@@ -76,5 +76,18 @@ class CaseController < ApplicationController
         FROM course_masters AS CM;
     SQL
     @result4_2 = CourseMaster.find_by_sql(@sql4_2)
+
+    @sql5 = <<-SQL.strip_heredoc
+      -- 条件1: 1つだけのクラブに所属している学生については、そのクラブIDを取得する
+      -- 条件2: 複数のクラブを掛け持ち7エル学生については、主なクラブのIDを取得する
+      SELECT std_id,
+             CASE WHEN COUNT(*) = 1
+                  THEN MAX(club_id)
+                  ELSE MAX(CASE WHEN main_club_flg = 1 THEN club_id
+                                ELSE NULL END)
+                  END AS club_id
+        FROM student_clubs GROUP BY std_id;
+    SQL
+    @result5 = StudentClub.find_by_sql(@sql5)
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322233630) do
+ActiveRecord::Schema.define(version: 20150323231931) do
 
   create_table "course_masters", id: false, force: :cascade do |t|
     t.integer "course_id",   limit: 4,   null: false
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20150322233630) do
   create_table "pop_tbls", id: false, force: :cascade do |t|
     t.string  "pref_name",  limit: 255, null: false
     t.integer "population", limit: 4,   null: false
+  end
+
+  create_table "student_clubs", id: false, force: :cascade do |t|
+    t.integer "std_id",        limit: 4,   null: false
+    t.integer "club_id",       limit: 4,   null: false
+    t.string  "club_name",     limit: 255, null: false
+    t.boolean "main_club_flg", limit: 1,   null: false
   end
 
 end
