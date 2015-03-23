@@ -4,7 +4,7 @@ class CreateStudentClubs < ActiveRecord::Migration
       t.integer :std_id, null: false
       t.integer :club_id, null: false
       t.string :club_name, null: false
-      t.boolean :main_club_flg, null: false
+      t.string :main_club_flg, null: false
     end
   end
 end

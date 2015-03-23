@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150323231931) do
     t.integer "std_id",        limit: 4,   null: false
     t.integer "club_id",       limit: 4,   null: false
     t.string  "club_name",     limit: 255, null: false
-    t.boolean "main_club_flg", limit: 1,   null: false
+    t.string  "main_club_flg", limit: 255, null: false
   end
 
 end

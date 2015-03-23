@@ -51,12 +51,12 @@ OpenCourse.create!([
 
 StudentClub.all.delete_all
 StudentClub.create!([
-  {std_id: 100, club_id: 1, club_name: '野球',         main_club_flg: true},
-  {std_id: 100, club_id: 2, club_name: '吹奏楽',       main_club_flg: false},
-  {std_id: 200, club_id: 2, club_name: '吹奏楽',       main_club_flg: false},
-  {std_id: 200, club_id: 3, club_name: 'バドミントン', main_club_flg: true},
-  {std_id: 200, club_id: 4, club_name: 'サッカー',     main_club_flg: false},
-  {std_id: 300, club_id: 4, club_name: 'サッカー',     main_club_flg: false},
-  {std_id: 400, club_id: 5, club_name: '水泳',         main_club_flg: false},
-  {std_id: 500, club_id: 6, club_name: '囲碁',         main_club_flg: false},
+  {std_id: 100, club_id: 1, club_name: '野球',         main_club_flg: 'Y'},
+  {std_id: 100, club_id: 2, club_name: '吹奏楽',       main_club_flg: 'N'},
+  {std_id: 200, club_id: 2, club_name: '吹奏楽',       main_club_flg: 'N'},
+  {std_id: 200, club_id: 3, club_name: 'バドミントン', main_club_flg: 'Y'},
+  {std_id: 200, club_id: 4, club_name: 'サッカー',     main_club_flg: 'N'},
+  {std_id: 300, club_id: 4, club_name: 'サッカー',     main_club_flg: 'N'},
+  {std_id: 400, club_id: 5, club_name: '水泳',         main_club_flg: 'N'},
+  {std_id: 500, club_id: 6, club_name: '囲碁',         main_club_flg: 'N'},
 ])
