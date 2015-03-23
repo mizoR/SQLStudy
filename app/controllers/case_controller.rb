@@ -13,7 +13,7 @@ class CaseController < ApplicationController
              ELSE 'その他' END AS district,
              SUM(population) AS population
           FROM pop_tbls
-       GROUP BY district;
+      GROUP BY district;
     SQL
     @result = PopTbl.find_by_sql(@sql)
 
@@ -26,7 +26,7 @@ class CaseController < ApplicationController
              ELSE NULL END AS pop_class,
              COUNT(*) AS cnt
           FROM pop_tbls
-       GROUP BY pop_class;
+      GROUP BY pop_class;
     SQL
     @result2 = PopTbl.find_by_sql(@sql2)
 
@@ -38,8 +38,43 @@ class CaseController < ApplicationController
              -- 女性の人口
              SUM( CASE WHEN sex = 2 THEN population ELSE 0 END ) AS cnt_f
           FROM pop_tbl2s
-       GROUP BY pref_name;
+      GROUP BY pref_name;
     SQL
     @result3 = PopTbl.find_by_sql(@sql3)
+
+    @sql4 = <<-SQL.strip_heredoc
+      -- テーブルのマッチング : IN述語の利用
+      SELECT course_name,
+             CASE WHEN course_id IN
+                    (SELECT course_id FROM open_courses WHERE month = 200706) THEN 'o'
+                  ELSE 'x' END AS '6月',
+             CASE WHEN course_id IN
+                    (SELECT course_id FROM open_courses WHERE month = 200707) THEN 'o'
+                  ELSE 'x' END AS '7月',
+             CASE WHEN course_id IN
+                    (SELECT course_id FROM open_courses WHERE month = 200708) THEN 'o'
+                  ELSE 'x' END AS '8月'
+        FROM course_masters;
+    SQL
+    @result4 = CourseMaster.find_by_sql(@sql4)
+
+    @sql4_2 = <<-SQL.strip_heredoc
+      -- テーブルのマッチング : EXISTS述語の利用
+      SELECT course_name,
+             CASE WHEN EXISTS (SELECT course_id FROM open_courses AS OC
+                                WHERE month = 200706
+                                  AND OC.course_id = CM.course_id) THEN 'o'
+                  ELSE 'x' END AS '6月',
+             CASE WHEN EXISTS (SELECT course_id FROM open_courses AS OC
+                                WHERE month = 200707
+                                  AND OC.course_id = CM.course_id) THEN 'o'
+                  ELSE 'x' END AS '7月',
+             CASE WHEN EXISTS (SELECT course_id FROM open_courses AS OC
+                                WHERE month = 200708
+                                  AND OC.course_id = CM.course_id) THEN 'o'
+                  ELSE 'x' END AS '8月'
+        FROM course_masters AS CM;
+    SQL
+    @result4_2 = CourseMaster.find_by_sql(@sql4_2)
   end
 end

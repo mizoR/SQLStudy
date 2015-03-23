@@ -11,3 +11,10 @@
 
 <%= dbconsole PopTbl2.all.to_sql, PopTbl2.all %>
 <%= dbconsole @sql3, @result3 %>
+
+<h3>テーブル同士のマッチング</h3>
+
+<%= dbconsole CourseMaster.all.to_sql, CourseMaster.all %>
+<%= dbconsole OpenCourse.all.to_sql, OpenCourse.all %>
+<%= dbconsole @sql4, @result4 %>
+<%= dbconsole @sql4_2, @result4_2 %>

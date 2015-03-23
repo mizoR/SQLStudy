@@ -30,3 +30,21 @@ PopTbl2.create!([
   {pref_name: '東京', sex: 1, population: 250},
   {pref_name: '東京', sex: 2, population: 150},
 ])
+
+CourseMaster.all.delete_all
+CourseMaster.create!([
+  {course_id: 1, course_name: '経理入門'},
+  {course_id: 2, course_name: '財務知識'},
+  {course_id: 3, course_name: '簿記検定'},
+  {course_id: 4, course_name: '税理士'},
+])
+
+OpenCourse.all.delete_all
+OpenCourse.create!([
+  {month: 200706, course_id: 1},
+  {month: 200706, course_id: 3},
+  {month: 200706, course_id: 4},
+  {month: 200707, course_id: 4},
+  {month: 200708, course_id: 2},
+  {month: 200708, course_id: 4},
+])
