@@ -47,13 +47,13 @@ class CaseController < ApplicationController
       SELECT course_name,
              CASE WHEN course_id IN
                     (SELECT course_id FROM open_courses WHERE month = 200706) THEN 'o'
-                  ELSE 'x' END AS '6月',
+                  ELSE 'x' END AS June,
              CASE WHEN course_id IN
                     (SELECT course_id FROM open_courses WHERE month = 200707) THEN 'o'
-                  ELSE 'x' END AS '7月',
+                  ELSE 'x' END AS July,
              CASE WHEN course_id IN
                     (SELECT course_id FROM open_courses WHERE month = 200708) THEN 'o'
-                  ELSE 'x' END AS '8月'
+                  ELSE 'x' END AS August
         FROM course_masters;
     SQL
     @result4 = CourseMaster.find_by_sql(@sql4)
@@ -64,15 +64,15 @@ class CaseController < ApplicationController
              CASE WHEN EXISTS (SELECT course_id FROM open_courses AS OC
                                 WHERE month = 200706
                                   AND OC.course_id = CM.course_id) THEN 'o'
-                  ELSE 'x' END AS '6月',
+                  ELSE 'x' END AS June,
              CASE WHEN EXISTS (SELECT course_id FROM open_courses AS OC
                                 WHERE month = 200707
                                   AND OC.course_id = CM.course_id) THEN 'o'
-                  ELSE 'x' END AS '7月',
+                  ELSE 'x' END AS July,
              CASE WHEN EXISTS (SELECT course_id FROM open_courses AS OC
                                 WHERE month = 200708
                                   AND OC.course_id = CM.course_id) THEN 'o'
-                  ELSE 'x' END AS '8月'
+                  ELSE 'x' END AS August
         FROM course_masters AS CM;
     SQL
     @result4_2 = CourseMaster.find_by_sql(@sql4_2)
