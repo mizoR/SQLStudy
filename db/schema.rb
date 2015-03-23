@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322110230) do
+ActiveRecord::Schema.define(version: 20150322233630) do
+
+  create_table "course_masters", id: false, force: :cascade do |t|
+    t.integer "course_id",   limit: 4,   null: false
+    t.string  "course_name", limit: 255, null: false
+  end
+
+  create_table "open_courses", id: false, force: :cascade do |t|
+    t.integer "month",     limit: 4, null: false
+    t.integer "course_id", limit: 4, null: false
+  end
 
   create_table "pop_tbl2s", id: false, force: :cascade do |t|
     t.string  "pref_name",  limit: 255, null: false
