@@ -20,6 +20,7 @@
         <a class="pure-menu-heading" href="/">SQL Study</a>
         <ul class="pure-menu-list">
           <li class="pure-menu-item <%= 'pure-menu-selected' if current_page?(case_path) %>"><%= link_to 'CASE 式', case_path, class: 'pure-menu-link' %></li>
+          <li class="pure-menu-item <%= 'pure-menu-selected' if current_page?(self_adopted_path) %>"><%= link_to '自己結合', self_adopted_path, class: 'pure-menu-link' %></li>
         </ul>
       </div>
     </div>

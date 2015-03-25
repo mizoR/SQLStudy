@@ -60,3 +60,10 @@ StudentClub.create!([
   {std_id: 400, club_id: 5, club_name: '水泳',         main_club_flg: 'N'},
   {std_id: 500, club_id: 6, club_name: '囲碁',         main_club_flg: 'N'},
 ])
+
+Product.all.delete_all
+Product.create!([
+  {name: 'りんご', price: 100},
+  {name: 'みかん', price: 50},
+  {name: 'バナナ', price: 80},
+])
