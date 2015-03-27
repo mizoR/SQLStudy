@@ -24,5 +24,19 @@ class HavingController < ApplicationController
                 HAVING COUNT(*) >= ALL(SELECT COUNT(*) FROM graduates GROUP BY income);
     SQL
     @result3 = SeqTbl.find_by_sql(@sql3)
+
+    @sql4 = <<-SQL.strip_heredoc
+        -- メジアンを求める。自己非等値結合をHAVING句で使う
+        SELECT AVG(DISTINCT income)
+            FROM (
+                SELECT T1.income FROM graduates T1, graduates T2
+                    GROUP BY T1.income
+                        -- 収入順の下位半分 + 1
+                        HAVING SUM(CASE WHEN T2.income >= T1.income THEN 1 ELSE 0 END) >= COUNT(*) / 2
+                        -- 収入順の上位半分 + 1
+                           AND SUM(CASE WHEN T2.income <= T1.income THEN 1 ELSE 0 END) >= COUNT(*) / 2
+            ) TMP;
+    SQL
+    @result4 = SeqTbl.find_by_sql(@sql4)
   end
 end
