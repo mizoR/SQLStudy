@@ -77,3 +77,13 @@ Product2.create!([
   {name: 'レモン', price: 30},
   {name: 'バナナ', price: 50},
 ])
+
+SeqTbl.all.delete_all
+SeqTbl.create!([
+  {seq: 1, name: 'ディック'},
+  {seq: 2, name: 'アン'},
+  {seq: 3, name: 'ライル'},
+  {seq: 5, name: 'カー'},
+  {seq: 6, name: 'マリー'},
+  {seq: 8, name: 'ベン'},
+])
