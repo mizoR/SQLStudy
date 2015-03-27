@@ -79,7 +79,7 @@ class CaseController < ApplicationController
 
     @sql5 = <<-SQL.strip_heredoc
       -- 条件1: 1つだけのクラブに所属している学生については、そのクラブIDを取得する
-      -- 条件2: 複数のクラブを掛け持ち7エル学生については、主なクラブのIDを取得する
+      -- 条件2: 複数のクラブを掛け持ちしている学生については、主なクラブのIDを取得する
       SELECT std_id,
              CASE WHEN COUNT(*) = 1
                   THEN MAX(club_id)
