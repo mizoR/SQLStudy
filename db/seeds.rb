@@ -67,3 +67,13 @@ Product.create!([
   {name: 'みかん', price: 50},
   {name: 'バナナ', price: 80},
 ])
+
+Product2.all.delete_all
+Product2.create!([
+  {name: 'りんご', price: 50},
+  {name: 'みかん', price: 100},
+  {name: 'ぶどう', price: 50},
+  {name: 'スイカ', price: 80},
+  {name: 'レモン', price: 30},
+  {name: 'バナナ', price: 50},
+])

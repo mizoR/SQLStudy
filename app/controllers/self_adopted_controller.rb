@@ -23,5 +23,29 @@ class SelfAdoptedController < ApplicationController
             AND P2.name > P3.name;
     SQL
     @result3 = Product.find_by_sql(@sql3)
+
+    @sql4 = <<-SQL.strip_heredoc
+      -- 自己非等値結合: 値段の高い順ランキング。1位から始まる。同順位が続いた後は不連続
+      SELECT
+              P1.name AS name,
+              P1.price AS price,
+              (SELECT COUNT(P2.price) FROM products2 P2 WHERE P2.price > P1.price) + 1 AS rank
+          FROM products2 P1
+          ORDER BY rank;
+    SQL
+    @result4 = Product.find_by_sql(@sql4)
+
+    @sql5 = <<-SQL.strip_heredoc
+      -- 自己結合: 値段の高い順ランキング。1位から始まる。同順位が続いた後は不連続
+      SELECT
+              P1.name AS name,
+              MAX(P1.price) AS price,
+              COUNT(P2.name) + 1 AS rank
+          FROM products2 P1
+              LEFT OUTER JOIN products2 P2 ON P1.price < P2.price
+          GROUP BY P1.name
+          ORDER BY rank;
+    SQL
+    @result5 = Product.find_by_sql(@sql5)
   end
 end
