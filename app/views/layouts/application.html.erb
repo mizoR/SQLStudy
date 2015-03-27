@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
   <title><%= title = yield(:title); title.present? ? "#{title} | #{base_title}" : base_title %></title>
+  <%= favicon_link_tag 'favicon.png' %>
   <%= stylesheet_link_tag "application" %>
 </head>
 <body>
