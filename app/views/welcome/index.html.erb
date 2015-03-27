@@ -1,3 +1,21 @@
-<%= dbconsole PopTbl.all.to_sql, PopTbl.all %>
+<pre class="code"><code>sql> SELECT twitter, github FROM users WHERE is_owner = 'Y';
++------------------+--------+
+| twitter          | github |
++------------------+--------+
+| <%= link_to '@ryutaro_mizokam', 'https://twitter.com/ryutaro_mizokam', target: :_blank %> | <%= link_to '@mizoR', 'https://github.com/mizoR', target: :_blank %> |
++------------------+--------+
+1 rows in set
 
-<%= dbconsole @sql, @result %>
+sql> SELECT W.title AS website, R.type AS type, R.title AS title, R.owner AS author
+          FROM references R
+              INNER JOIN websites W ON W.id = R.site_id
+          WHERE W.title = "SQL Study";
++-----------+------+----------------------------------------+-------+
+| website   | type | title                                  | owner |
++-----------+------+----------------------------------------+-------+
+| SQL Study | Book | <%= link_to '達人に学ぶ SQL徹底指南書 (CodeZine BOOKS)', 'http://amzn.to/1xkSuUg', target: :_blank %> | ミック |
++-----------+------+----------------------------------------+-------+
+1 rows in set
+
+sql> quit
+Please enjoy.</code></pre>
