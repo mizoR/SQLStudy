@@ -1,25 +1,24 @@
-<h2>CASE 式</h2>
+<% provide :title, 'CASE 式' %>
 
-
-<h3>既存のコード体系を新体系に変換して集計する</h3>
+<h2>既存のコード体系を新体系に変換して集計する</h2>
 
 <%= dbconsole PopTbl.all.to_sql, PopTbl.all %>
 <%= dbconsole @sql, @result %>
 <%= dbconsole @sql2, @result2 %>
 
-<h3>異なる条件の集計を1つのSQLで行う</h3>
+<h2>異なる条件の集計を1つのSQLで行う</h2>
 
 <%= dbconsole PopTbl2.all.to_sql, PopTbl2.all %>
 <%= dbconsole @sql3, @result3 %>
 
-<h3>テーブル同士のマッチング</h3>
+<h2>テーブル同士のマッチング</h2>
 
 <%= dbconsole CourseMaster.all.to_sql, CourseMaster.all %>
 <%= dbconsole OpenCourse.all.to_sql, OpenCourse.all %>
 <%= dbconsole @sql4, @result4 %>
 <%= dbconsole @sql4_2, @result4_2 %>
 
-<h3>CASE式の中で集約関数を使う</h3>
+<h2>CASE式の中で集約関数を使う</h2>
 
 <%= dbconsole StudentClub.all.to_sql, StudentClub.all %>
 <%= dbconsole @sql5, @result5 %>

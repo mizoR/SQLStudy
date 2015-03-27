@@ -6,4 +6,8 @@ module ApplicationHelper
 #{h Hirb::Helpers::AutoTable.render(result)}</code></pre>
     HTML
   end
+
+  def base_title
+    'SQL Study'
+  end
 end

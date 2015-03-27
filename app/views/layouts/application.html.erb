@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
-  <title>SQL Study</title>
+  <title><%= title = yield(:title); title.present? ? "#{title} | #{base_title}" : base_title %></title>
   <%= stylesheet_link_tag "application" %>
 </head>
 <body>
@@ -21,14 +21,14 @@
         <ul class="pure-menu-list">
           <li class="pure-menu-item <%= 'pure-menu-selected' if current_page?(case_path) %>"><%= link_to 'CASE 式', case_path, class: 'pure-menu-link' %></li>
           <li class="pure-menu-item <%= 'pure-menu-selected' if current_page?(self_adopted_path) %>"><%= link_to '自己結合', self_adopted_path, class: 'pure-menu-link' %></li>
-          <li class="pure-menu-item <%= 'pure-menu-selected' if current_page?(having_path) %>"><%= link_to 'HAVING', having_path, class: 'pure-menu-link' %></li>
+          <li class="pure-menu-item <%= 'pure-menu-selected' if current_page?(having_path) %>"><%= link_to 'HAVING 句', having_path, class: 'pure-menu-link' %></li>
         </ul>
       </div>
     </div>
 
     <div id="main">
       <div class="header">
-        <h1>SQL Study</h1>
+        <h1><%= title = yield(:title); title.present? ? title : base_title %></h1>
       </div>
 
       <div class="content">

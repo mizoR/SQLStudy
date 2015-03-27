@@ -1,7 +1,6 @@
-<h2>HAVING</h2>
+<% provide :title, 'HAVING 句' %>
 
-
-<h3>データの歯抜けを探す</h3>
+<h2>データの歯抜けを探す</h2>
 
 <%= dbconsole SeqTbl.all.to_sql, SeqTbl.all %>
 <%= dbconsole @sql, @result %>
