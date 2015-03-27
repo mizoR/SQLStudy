@@ -1,9 +1,13 @@
 <% provide :title, 'HAVING 句' %>
 
-<h2>データの歯抜けを探す</h2>
-
 <%= dbconsole SeqTbl.all.to_sql, SeqTbl.all %>
+
+<h2>データの歯抜けを探す</h2>
 <%= dbconsole @sql, @result %>
 <%= dbconsole @sql2, @result2 %>
+
+<h2>HAVING 句でサブクエリ: 最頻値を求める</h2>
 <%= dbconsole @sql3, @result3 %>
+
+<h2>HAVING 句で自己結合: メジアンを求める</h2>
 <%= dbconsole @sql4, @result4 %>
