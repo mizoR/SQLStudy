@@ -87,3 +87,17 @@ SeqTbl.create!([
   {seq: 6, name: 'マリー'},
   {seq: 8, name: 'ベン'},
 ])
+
+Graduate.all.delete_all
+Graduate.create!([
+  {name: 'サンプソン', income: 400_000},
+  {name: 'マイク',     income: 30_000},
+  {name: 'ホワイト',   income: 20_000},
+  {name: 'アーノルド', income: 20_000},
+  {name: 'スミス',     income: 20_000},
+  {name: 'ロレンス',   income: 15_000},
+  {name: 'ハドソン',   income: 15_000},
+  {name: 'ケント',     income: 10_000},
+  {name: 'ベッカー',   income: 10_000},
+  {name: 'スコット',   income: 10_000},
+])
